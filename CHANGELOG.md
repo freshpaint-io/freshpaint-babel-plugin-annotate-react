@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.3
+
+- Fix for object properties
+
 ## 2.1.2
 
 - Version bump to trigger a green build
