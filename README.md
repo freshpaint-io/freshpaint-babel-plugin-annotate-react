@@ -1,7 +1,7 @@
 # Babel Plugin: Annotate React
-[![CircleCI](https://circleci.com/gh/fullstorydev/fullstory-babel-plugin-annotate-react.svg?style=svg)](https://circleci.com/gh/fullstorydev/fullstory-babel-plugin-annotate-react)
+[![CircleCI](https://circleci.com/gh/freshpaint-io/freshpaint-babel-plugin-annotate-react.svg?style=svg)](https://circleci.com/gh/freshpaint-io/freshpaint-babel-plugin-annotate-react)
 
-This is a Babel plugin that annotates React components with stable attributes that can be used to search and select using FullStory. This is most useful when using a React system that generates dynamic names for Components or rearranges elements.
+This is a Babel plugin that annotates React components with stable attributes that can be used to select using Freshpaint. This is most useful when using a React system that generates dynamic names for Components or rearranges elements.
 
 For React on the web the attributes are `data-component`, `data-element`, and `data-source-file`. For React Native the attributes are `dataComponent`, `dataElement`, and `dataSourceFile`.
 
@@ -39,7 +39,7 @@ Final render:
 To activate React Native support you must pass in a `native` plugin option like so:
 
     plugins: [
-      ["@fullstory/babel-plugin-annotate-react", { native: true }]
+      ["@freshpaint/babel-plugin-annotate-react", { native: true }]
     ]
 
 
@@ -65,7 +65,7 @@ An example with child elements:
 If you would like the plugin to attempt to annotate the first HTML element created by a Fragment (if it exists) then set the `annotate-fragments` flag:
 
     plugins: [
-      ["@fullstory/babel-plugin-annotate-react", { "annotate-fragments": true }]
+      ["@freshpaint/babel-plugin-annotate-react", { "annotate-fragments": true }]
     ]
 
 We have a few samples to demonstrate this plugin:
