@@ -122,7 +122,10 @@ function applyAttributes(t, openingElement, componentName, sourceFileName, compo
     if (!node.name) return
     return node.name.name === elementAttributeName
   }) == null){
-    const name = openingElement.node.name.name || 'unknown'
+    let name = openingElement.node.name.name || 'unknown';
+    if (openingElement.node.name.property && openingElement.node.name.property.name) {
+      name = openingElement.node.name.property.name;
+    }
     if (ignoredElements.includes(name)) {
       ignoredElement = true
     } else {
