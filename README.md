@@ -3,9 +3,22 @@
 
 This is a Babel plugin that annotates React components with stable attributes that can be used to select using Freshpaint. This is most useful when using a React system that generates dynamic names for Components or rearranges elements.
 
-For React on the web the attributes are `data-component`, `data-element`, and `data-source-file`. For React Native the attributes are `dataComponent`, `dataElement`, and `dataSourceFile`.
+## Installation
+You can install via npm with `npm install --save @freshpaint/babel-plugin-annotate-react` 
+or with yarn `yarn add @freshpaint/babel-plugin-annotate-react`
 
-The component attribute names the `React.Component` and the element attribute names the original native elements like `View` or `Image` or an emitter of DOM elements like `Fragment`.
+After that, you will need to add the plugin to your babel config.
+```json
+{
+  "plugins": [
+      ... your other plugins ...
+      "@freshpaint/babel-plugin-annotate-react"
+  ]
+}
+```
+
+## Web
+For React on the web, this library will attach attributes: `data-component`, `data-element`, and `data-source-file` to your rendered html components.
 
 Example input:
 
@@ -36,13 +49,7 @@ Final render:
       <h1>Hello world</h1>
     </div>
 
-To activate React Native support you must pass in a `native` plugin option like so:
-
-    plugins: [
-      ["@freshpaint/babel-plugin-annotate-react", { native: true }]
-    ]
-
-
+### Fragments
 By default, the plugin does not annotate `React.Fragment`s because they may or may not contain a child that ends up being an HTML element.
 
 An example with no child element:
@@ -68,6 +75,17 @@ If you would like the plugin to attempt to annotate the first HTML element creat
       ["@freshpaint/babel-plugin-annotate-react", { "annotate-fragments": true }]
     ]
 
+
+## React Native
+For React Native, this library will attach attributes: `dataComponent`, `dataElement`, and `dataSourceFile` to your components.
+
+To activate React Native support you must pass in a `native` plugin option like so:
+
+    plugins: [
+      ["@freshpaint/babel-plugin-annotate-react", { native: true }]
+    ]
+
+## Demos
 We have a few samples to demonstrate this plugin:
 
 - [Single Page App](./samples/single-page-app/)
